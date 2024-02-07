@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/src/output.css" />
+  </head>
+  <body>
+    <div class="container w-full h-full">
+      <div class="dateTime-container p-5">
+        <div>
+          <p class="text-2xl font-bold">
+            Date and time <span class="text-red-700">*</span>
+          </p>
+        </div>
+        <div class="flex flex-row items-center mb-12">
+          <input
+            class="checkbox cursor-pointer w-5 h-5 rounded"
+            type="checkbox"
+            checked
+          />
+          <p>Publish ASAP</p>
+          <svg
+            class="w-4 h-4"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+              d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
+            />
+          </svg>
+        </div>
+        <div>
+          <div class="datepicker relative">
+            <div class="mb-5">
+              <p class="text-gray-600">Publication date:</p>
+            </div>
+            <div class="rounder w-full items-center">
+              <div class="flex flex-row items-center">
+                <svg
+                  class="w-4 h-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z"
+                  />
+                </svg>
+                <input
+                  class="w-full"
+                  id="publicationDate"
+                  placeholder="Select release date *"
+                  onclick="showDatePicker()"
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                  <path
+                    d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div
+              class="datepicker-popup w-full hidden absolute left-0 rounded"
+              id="datepickerPopup"
+            >
+              <div class="month-year" id="monthYear">
+                <button
+                  class="prev-btn w-2 cursor-pointer text-base p-1 flex"
+                  onclick="prevMonth()"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
+                    />
+                  </svg>
+                </button>
+                <span></span>
+                <button
+                  class="next-btn w-2 cursor-pointer text-base p-1 flex"
+                  onclick="nextMonth()"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <table class="w-full" id="calendar">
+                <thead>
+                  <tr>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      S
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      M
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      T
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      W
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      T
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      F
+                    </th>
+                    <th
+                      class="p-2 text-center bg-white font-normal text-red-700"
+                    >
+                      S
+                    </th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div class="dropdowns-container flex flex-col p-4">
+                <div class="flex flex-row justify-between items-center">
+                  <label class="text-sm font-bold" for="publicationTime"
+                    >Publication Time:</label
+                  >
+                  <select
+                    class="p-1 w-24 rounded text-gray-600 cursor-pointer"
+                    id="publicationTime"
+                  >
+                    <option class="text-sm text-gray-600" value="09:00 AM">
+                      9:00 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="09:30 AM">
+                      9:30 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="10:00 AM">
+                      10:00 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="10:30 AM">
+                      10:30 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="11:00 AM">
+                      11:00 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="11:30 AM">
+                      11:30 AM
+                    </option>
+                    <option class="text-sm text-gray-600" value="12:00 PM">
+                      12:00 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="12:30 PM">
+                      12:30 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="1:00 PM">
+                      1:00 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="1:30 PM">
+                      1:30 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="2:00 PM">
+                      2:00 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="2:30 PM">
+                      2:30 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="3:00 PM">
+                      3:00 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="3:30 PM">
+                      3:30 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="4:00 PM">
+                      4:00 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="4:30 PM">
+                      4:30 PM
+                    </option>
+                    <option class="text-sm text-gray-600" value="05:00 PM">
+                      5:00 PM
+                    </option>
+                  </select>
+                </div>
+                <div class="flex flex-row justify-between items-center">
+                  <label class="text-sm font-bold" for="publicationTimezone"
+                    >Publication Timezone:</label
+                  >
+                  <select
+                    class="p-1 w-24 rounded text-gray-600 cursor-pointer"
+                    id="publicationTimezone"
+                  >
+                    <option value="UTC">UTC</option>
+                    <option value="EST">EST</option>
+                    <!-- Add more timezones if needed -->
+                  </select>
+                </div>
+              </div>
+              <div class="button-container w-full flex mt-2">
+                <button
+                  class="bg-red-700 text-white cursor-pointer"
+                  onclick="setSelectedDate()"
+                >
+                  Okay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.container {
+  width: 100%;
+  height: 100%;
+}
+.dateTime-container {
+  padding: 20px;
+}
+.dateTime-container > div:nth-child(1) {
+  margin-bottom: 30px;
+}
+.dateTime-container > div:nth-child(1) > p {
+  font-size: 25px;
+  font-weight: 700;
+}
+.dateTime-container > div:nth-child(1) > p > span {
+  color: #b52618;
+}
+.dateTime-container > div:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 50px;
+}
+.dateTime-container > div:nth-child(2) > svg {
+  width: 17px;
+  height: 17px;
+  fill: gray;
+}
+input.checkbox {
+  accent-color: #b52618;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+}
+.datepicker {
+  position: relative;
+}
+.datepicker > div:nth-child(1) {
+  margin-bottom: 20px;
+}
+.datepicker > div:nth-child(1) > p {
+  color: #919191;
+}
+.datepicker > div:nth-child(2) > div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.datepicker > div:nth-child(2) > div > svg {
+  width: 15px;
+  height: 15px;
+}
+.datepicker > div:nth-child(2) > div > svg:first-of-type {
+  fill: #c8c8c8;
+}
+.datepicker > div:nth-child(2) {
+  border-radius: 5px;
+  border: 1px solid #d7d7d7;
+  width: 100%;
+  padding: 10px 15px;
+}
+.datepicker > div:nth-child(2) > div > svg:last-of-type {
+  fill: #757575;
+}
+.datepicker > .publicationDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.datepicker > .publicationDate > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.datepicker > .publicationDate > div:first-child > svg {
+  fill: #c8c8c8;
+}
+.datepicker > .publicationDate > div:first-child > p {
+  font-size: 14px;
+  color: #a3a3a3;
+}
+.datepicker > .publicationDate > div:last-child > svg {
+  fill: #757575;
+}
+.datepicker > input {
+  padding: 10px;
+  cursor: pointer;
+}
+input {
+  border: none;
+  width: 100%;
+}
+input:focus {
+  border-color: inherit;
+  box-shadow: none;
+  outline: none;
+  background-color: #fff;
+}
+.datepicker-popup {
+  width: 100%;
+  display: none;
+  position: absolute;
+  top: 90px;
+  left: 0;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.dropdowns-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.dropdowns-container > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropdowns-container > div > label {
+  font-size: 14px;
+  font-weight: bold;
+}
+select {
+  margin: 5px 0;
+  padding: 5px;
+  width: 100px;
+  border: 1px solid #d7d7d7;
+  border-radius: 5px;
+  color: #969696;
+  cursor: pointer;
+}
+option {
+  font-size: 14px;
+  color: #969696;
+}
+option:hover {
+  background-color: #b52618;
+}
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+  padding: 0 15px 20px 15px;
+}
+.button-container > button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #b52618;
+  color: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+thead {
+  margin: 10px 0;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #fff;
+  font-weight: normal;
+  color: #b52618;
+}
+
+td {
+  cursor: pointer;
+}
+
+.highlight {
+  background-color: #b52618;
+  color: #fff;
+  border-radius: 5px;
+}
+table,
+th,
+td {
+  border: none;
+}
+.other-month {
+  color: #cfcfcf;
+}
+
+.month-year {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.prev-btn > svg,
+.next-btn > svg {
+  fill: #fff;
+  width: 10px;
+}
+.month-year button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 5px;
+  outline: none;
+  display: flex;
+}
+@media screen and (min-width: 420px) {
+  .container {
+    max-width: 350px !important;
+    margin: 0 auto;
+  }
+}
+@media screen and (min-width: 620px) {
+  .container {
+    max-width: 500px !important;
+  }
+  table {
+    height: 300px !important;
+  }
+  .dropdowns-container {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    gap: 40px !important;
+  }
+  .dropdowns-container > div {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: start !important;
+  }
+  select {
+    width: 100% !important;
+  }
+}
